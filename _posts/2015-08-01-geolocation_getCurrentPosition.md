@@ -54,7 +54,7 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 
 #### Navegadores compatíveis
 
-##### Desktop
+##### **Desktop**
 
 | Feature        | Chrome | Firefox (Gecko) | Internet Explorer | Opera                                        | Safari |
 | -------------- | ------ | --------------- | ----------------- | -------------------------------------------- | ------ |

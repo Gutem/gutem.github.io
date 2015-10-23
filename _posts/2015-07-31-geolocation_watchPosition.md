@@ -61,7 +61,7 @@ id = navigator.geolocation.watchPosition(success, error, options);
 #### Especificações
 | Especificações | Estado | Comentário |
 | -------------- | ------ | ---------- |
-| Geolocation API  The definition of 'Geolocation.watchPosition()' in that specification. | Recommendation | Initial specification. |
+| Geolocation API  A definição de 'Geolocation.watchPosition()' está naquela especificação | Recomendação | Especificação inicial |
 
 #### Navegadores compatíveis
 
