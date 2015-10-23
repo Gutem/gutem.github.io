@@ -10,8 +10,8 @@ layout: default
 		<li>
 			<div class="post-date">
 				<span>
-					{% assign m = page.date | date: "%-m" %}
-					{{ page.date | date: "%-d" }}
+					{% assign m = post.date | date: "%-m" %}
+					{{ post.date | date: "%-d" }}
 					{% case m %}
 					  {% when '1' %}Janeiro
 					  {% when '2' %}Fevereiro
@@ -26,8 +26,8 @@ layout: default
 					  {% when '11' %}Novembro
 					  {% when '12' %}Dezembro
 					{% endcase %}
-					{{ page.date | date: "%Y" }}
-				</span>
+					{{ post.date | date: "%Y" }}
+				</time>
 			</div>
 			<div class="title">
 				<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
