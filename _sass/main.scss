@@ -9,6 +9,12 @@ body {
     padding: 35px 50px;
   }
 }
+
+h1 {
+  font-size: 40px;
+  line-height: 0.4em;
+}
+
 h2,
 h3,
 h4,
@@ -216,7 +222,7 @@ pre {
   display: block;
   margin-top: 0;
   margin-bottom: 1rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 1.4;
   white-space: pre;
   overflow-x: auto;
@@ -250,7 +256,7 @@ iframe {
   width: 100%;
 }
 article {
-  max-width: 500px;
+  max-width: 80%;
   margin: 0 auto;
   .title {
     line-height: 1.4em;
