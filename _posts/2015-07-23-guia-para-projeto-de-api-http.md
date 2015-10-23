@@ -21,33 +21,33 @@ Agradecemos [contribuições](CONTRIBUTING.md) a esse guia.
 
 * [Fundamentos](#fundamentos)
   *  [Separe as Responsabilidades](#separe-as-responsabilidades)
-  *  [Exija Conexões Seguras](#exija-conex&otilde;es-seguras)
-  *  [Exija Versionamento no Cabeçalho Accepts](#exija-versionamento-no-cabe&ccedil;alho-accepts)
+  *  [Exija Conexões Seguras](#exija-conexes-seguras)
+  *  [Exija Versionamento no Cabeçalho Accepts](#exija-versionamento-no-cabealho-accepts)
   *  [Suporte ETags para Cacheamento](#suporte-etags-para-cacheamento)
-  *  [Forneça Request-Ids para Introspecção](#forne&ccedil;a-request-ids-para-introspec&ccedil;ão)
-  *  [Divida Respostas Longas Entre Requisições com Ranges](#divida-respostas-longas-entre-requisi&ccedil;ões-com-ranges)
-* [Requisições](#requisi&ccedil;ões)
-  *  [Aceite JSON serializado no corpo das requisições](#aceite-json-serializado-no-corpo-das-requisi&ccedil;&otilde;es)
+  *  [Forneça Request-Ids para Introspecção](#forneça-request-ids-para-introspeco)
+  *  [Divida Respostas Longas Entre Requisições com Ranges](#divida-respostas-longas-entre-requisies-com-ranges)
+* [Requisições](#requisies)
+  *  [Aceite JSON serializado no corpo das requisições](#aceite-json-serializado-no-corpo-das-requisies)
   *  [Use formatos de rotas consistentes](#use-formatos-de-rotas-consistentes)
-    *  [Rotas e atributos em letras minúsculas](#rotas-e-atributos-em-letras-minúsculas)
-    *  [Suporte referência com atributos que não sejam ID por conveniência](#suporte-referência-com-atributos-que-não-sejam-id-por-conveniência)
+    *  [Rotas e atributos em letras minúsculas](#rotas-e-atributos-em-letras-minsculas)
+    *  [Suporte referência com atributos que não sejam ID por conveniência](#suporte-referncia-com-atributos-que-no-sejam-id-por-convenincia)
     *  [Minimize a profundidade da rota](#minimize-a-profundidade-da-rota)
 * [Respostas](#respostas)
-  *  [Retorne o código de estado apropriado](#retorne-o-código-de-estado-apropriado)
-  *  [Prover recursos completos quando disponível](#prover-recursos-completos-quando-disponível)
+  *  [Retorne o código de estado apropriado](#retorne-o-cdigo-de-estado-apropriado)
+  *  [Prover recursos completos quando disponível](#prover-recursos-completos-quando-disponvel)
   *  [Prover os (UU)IDs dos recursos](#prover-os-uuids-dos-recursos)
-  *  [Prover timestamps padrões](#prover-timestamps-padr&otilde;es)
-  *  [Use horários UTC em formato ISO8601](#use-horários-utc-em-formato-iso8601)
-  *  [Aninhe as relações de chaves estrangeiras](#aninhe-as-rela&ccedil;ões-de-chaves-estrangeiras)
+  *  [Prover timestamps padrões](#prover-timestamps-padres)
+  *  [Use horários UTC em formato ISO8601](#use-horrios-utc-em-formato-iso8601)
+  *  [Aninhe as relações de chaves estrangeiras](#aninhe-as-relaes-de-chaves-estrangeiras)
   *  [Gere erros estruturados](#gere-erros-estruturados)
-  *  [Mostre o estado limite de requisições](#mostre-o-estado-limite-de-requisi&ccedil;ões)
+  *  [Mostre o estado limite de requisições](#mostre-o-estado-limite-de-requisies)
   *  [Manter o JSON minificado em todas as respostas](#manter-o-json-minificado-em-todas-as-respostas)
 * [Artefatos](#artefatos)
-  *  [Prover um esquema JSON processável](#prover-um-esquema-json-processável)
-  *  [Prover documentação para leitura](#prover-documentação-para-leitura)
-  *  [Prover exemplos executáveis](#prover-exemplos-executáveis)
+  *  [Prover um esquema JSON processável](#prover-um-esquema-json-processvel)
+  *  [Prover documentação para leitura](#prover-documentao-para-leitura)
+  *  [Prover exemplos executáveis](#prover-exemplos-executveis)
   *  [Descreva a estabilidade](#descreva-a-estabilidade)
-* [Traduções](#tradu&ccedil;&otilde;es)
+* [Traduções](#tradues)
 
 ### Fundamentos
 
@@ -57,7 +57,7 @@ Mantenha as coisas simples quando for projetar separando as responsabilidades en
 
 Requisições e respostas serão feitas para se dirigir a um recurso em particular ou coleção. Use o caminho para indicar a identidade, o corpo para transferir o conteúdo e os cabeçalhos para indicar meta dados. Parâmetros podem ser usado como um meio de passar informações de cabeçalhos em casos extremos, mas cabeçalhos são preferidos já que são mais flexiveis e podem transmitir informações mais diversas.
 
-#### Exija Conex&otilde;es Seguras
+#### Exija Conexões Seguras
 
 Exija conexões seguras com TLS para acessar a API, sem excessões.
 Não vale a pena ficar imaginando ou explicando quando se deve usar TLS e quando não. Simplesmente exija TLS para tudo.
@@ -66,7 +66,7 @@ O ideal é simplesmente rejeitar qualquer requisição não TLS não respondendo
 
 Redirecionamentos são desencorajados uma vez que eles permitem um comportamento incorreto do cliente sem oferecer nenhum ganho. Clientes que dependem de redirecionamentos dobram o tráfego do servidor e fazem com que o TLS seja inútil uma vez que dados sensíveis já terão sido expostos na primeira requisição.
 
-#### Exija Versionamento no Cabe&ccedil;alho Accepts
+#### Exija Versionamento no Cabeçalho Accepts
 
 Versionamento e a transição entre versões podem ser um dos aspectos mais desafiadores de projetar e manter uma API. Por isso, é melhor empregar mecanismos para facilitar isto desde o começo.
 
