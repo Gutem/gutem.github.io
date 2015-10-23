@@ -16,7 +16,7 @@ layout: default
 		<h1>{{ page.title }}</h1>
 		<time>
 			{% assign m = page.date | date: "%-m" %}
-			{{ page.date | date: "%-d" }}
+			{{ page.date | date: "%-d" }} de
 			{% case m %}
 			  {% when '1' %}Janeiro
 			  {% when '2' %}Fevereiro
@@ -30,7 +30,7 @@ layout: default
 			  {% when '10' %}Outubro
 			  {% when '11' %}Novembro
 			  {% when '12' %}Dezembro
-			{% endcase %}
+			{% endcase %} de
 			{{ page.date | date: "%Y" }}
 		</time>
 	</div>

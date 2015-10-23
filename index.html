@@ -11,7 +11,7 @@ layout: default
 			<div class="post-date">
 				<span>
 					{% assign m = post.date | date: "%-m" %}
-					{{ post.date | date: "%-d" }}
+					{{ post.date | date: "%-d" }} de 
 					{% case m %}
 					  {% when '1' %}Janeiro
 					  {% when '2' %}Fevereiro
@@ -25,7 +25,7 @@ layout: default
 					  {% when '10' %}Outubro
 					  {% when '11' %}Novembro
 					  {% when '12' %}Dezembro
-					{% endcase %}
+					{% endcase %} de
 					{{ post.date | date: "%Y" }}
 				</time>
 			</div>
