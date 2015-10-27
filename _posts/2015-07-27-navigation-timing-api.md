@@ -84,8 +84,6 @@ var connectTime = perfData.responseEnd - perfData.requestStart;
 |:--------|:------:|:---------------:|:-----------------:|:-----:|:------:|
 | Suporte básico | 6.0 | 7 (7) | 9 | 15.0 | 8 |  
   
----
-  
 #### **Mobile**  
   
 | Feature | Android | Firefox Mobile (Gecko) | IE Mobile | Opera Mobile | Safari Mobile |
