@@ -48,8 +48,8 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 {% endhighlight %}
 
 #### Especificações
-| Especificações  | Estado       | Comentário            |
-| --------------- | ------------ | --------------------- |
+| Especificações | Estado | Comentário |
+|:---------------|:------:|:-----------|
 | Geolocation API | Recomendação | Especificação inicial |
 
 #### Navegadores compatíveis
