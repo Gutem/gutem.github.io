@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "RandomSource.getRandomValues()"
+title:  "RandomSource getRandomValues()"
 date:   2015-11-21 15:41:00
 ---
 ### RandomSource.getRandomValues()
@@ -9,9 +9,10 @@ O método **RandomSource.getRandomValues()** permite que você obtenha valores c
 
 Para garantir performance suficiente, as implementações não estão usando um gerador de número randômico de verdade, mas estão usando um gerador de número pseudo-randômico alimentado com um valor com entropia suficiente. Os PRNG (pseudo-random number generator - gerador de número pseudo-randômico) usados diferem de uma implementação para a outra, mas são adequadas para usos criptográficos. As implementações precisam ter um valor de alimentação com entropia suficiente, como uma fonte de entropia a nível de sistema.
 
-Sintaxe
-
+#### Sintaxe
+{% highlight javascript %}
 cryptoObj.getRandomValues(typedArray);
+{% endhighlight %}
 
 ##### Parâmetros
 
@@ -37,7 +38,7 @@ for (var i = 0; i < array.length; i++) {
 
 #### Especificação
 | Especificação | Estado | Comentário |
-|:---------------|:------:|:-----------|
+|:--------------|:------:|:----------:|
 | [Web Cryptography API](https://dvcs.w3.org/hg/webcrypto-api/raw-file/tip/spec/Overview.html#RandomSource-method-getRandomValues) | Recomendação Candidato | Definição inicial |
 
 #### Navegadores compatíveis

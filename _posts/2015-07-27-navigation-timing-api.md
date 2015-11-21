@@ -94,3 +94,4 @@ var connectTime = perfData.responseEnd - perfData.requestStart;
 [Artigo no MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Navigation_timing_API)
 ---
 Rev 1.0: 2015-07-27
+Rev 2.0: 2015-11-21
