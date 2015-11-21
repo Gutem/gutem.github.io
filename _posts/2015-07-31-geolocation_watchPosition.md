@@ -78,10 +78,11 @@ id = navigator.geolocation.watchPosition(success, error, options);
 
 #### Veja também
 * [Usando geolocalização](https://developer.mozilla.org/en-US/docs/WebAPI/Using_geolocation)
-* A interface que ele pertence, [Geolocation](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation), e como acesar [NavigatorGeolocation.geolocation](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorGeolocation/geolocation).
+* A interface que ele pertence, [Geolocation](https://developer.mozilla.org/pt-BR/docs/Web/API/Geolocation), e como acesar [NavigatorGeolocation.geolocation](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorGeolocation/geolocation).
 * A operação oposta: [Geolocation.clearWatch()](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/clearWatch)
 * Um método similar: [Geolocation.getCurrentPosition()](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition)
   
   
+[Artigo no MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Geolocation/watchPosition)
 ---
 Rev 1.0: 2015-08-01

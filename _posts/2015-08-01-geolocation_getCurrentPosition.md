@@ -17,11 +17,11 @@ navigator.geolocation.getCurrentPosition(success, error, options)
 ##### Parâmetros
 
 **_success_**
-    Uma função de retorno que captura um objeto `Position` como seu parâmetro de entrada.
-**_error_** _Optional_
-    Uma função de retorno opcional que captura um objeto `PositionError` como seu parâmetro de entrada.
-**_options_** _Optional_
-    Um objeto opcional `PositionOptions`.
+    Uma função de retorno que captura um objeto [Position](https://developer.mozilla.org/en-US/docs/Web/API/Position) como seu parâmetro de entrada.
+**_error_** _opcional_
+    Uma função de retorno opcional que captura um objeto [PositionError](https://developer.mozilla.org/en-US/docs/Web/API/PositionError) como seu parâmetro de entrada.
+**_options_** _opcional_
+    Um objeto [PositionOptions](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) opcional.
 
 #### Exemplo
 {% highlight javascript %}
@@ -50,7 +50,7 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 #### Especificações
 | Especificações | Estado | Comentário |
 |:---------------|:------:|:-----------|
-| Geolocation API | Recomendação | Especificação inicial |
+| [Geolocation API](https://dev.w3.org/geo/api/spec-source.html) | Recomendação | Especificação inicial |
 
 #### Navegadores compatíveis
 
@@ -65,9 +65,11 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 | Suporte básico | ? | ? | 4.0 (4) | ? | 10.60 | ? | 
 
 #### Veja também
-* [Usando geolocalização](https://developer.mozilla.org/en-US/docs/WebAPI/Using_geolocation)
+* [Using geolocation](https://developer.mozilla.org/en-US/docs/WebAPI/Using_geolocation)
 * [Navigator.geolocation](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation)
   
   
+[Artigo no MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Geolocation/getCurrentPosition)
 ---
 Rev 1.0: 2015-08-01
+Rev 2.0: 2015-11-21
