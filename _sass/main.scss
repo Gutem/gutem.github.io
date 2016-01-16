@@ -320,11 +320,11 @@ section {
     li {
       margin: 25px 0;
       .title {
-        max-width: 100%;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
         white-space: nowrap !important;
         word-wrap: normal !important;
+        width: 100%;
       }
       a {
         text-decoration: none;
@@ -333,8 +333,9 @@ section {
         box-sizing: border-box;
       }
       .post-date {
-        float: right;
-        margin: 0 0 0 20px;
+        margin: 0;
+        width: 100%;
+        font-size: 12px;
       }
       span {
         display: inline-block;

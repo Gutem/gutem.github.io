@@ -8,6 +8,9 @@ layout: default
 		{% for post in site.posts %}
 
 		<li>
+			<div class="title">
+				<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+			</div>
 			<div class="post-date">
 				<span>
 					{% assign m = post.date | date: "%-m" %}
@@ -28,9 +31,6 @@ layout: default
 					{% endcase %} de
 					{{ post.date | date: "%Y" }}
 				</time>
-			</div>
-			<div class="title">
-				<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 			</div>
 		</li>
 
