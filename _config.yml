@@ -1,6 +1,6 @@
 # Site Info
-title:              "The Plain"
-description:        "The Plain is a Minimalist Jekyll theme that focuses on writing matters."
+title:              "Gutem"
+description:        "Thoughts, Black Tea and some Code"
 google_verify:      QcXys_5Oyz_Ak_gesqUXl52-fy4KlqAP1AIJ64U2qcU # Put your Google Verification here
 google_analytics:   UA-69058408-1 # Put your Google Analytics code
 
@@ -16,7 +16,7 @@ permalink:          /notes/:title # Post permalink
 timezone:           America/Sao_Paulo # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Site Build
-highlighter:        pygments
+highlighter:        rouge
 #markdown:           redcarpet
 #redcarpet:
 #    extensions:     ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "highlight", "footnotes"]
