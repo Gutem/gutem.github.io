@@ -16,11 +16,8 @@ permalink:          /notes/:title # Post permalink
 timezone:           America/Sao_Paulo # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Site Build
-highlighter:        rouge
-#markdown:           redcarpet
-#redcarpet:
-#    extensions:     ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "highlight", "footnotes"]
 markdown:           kramdown
+highlighter:        rouge
 kramdown:
     input:          GFM
 sass:
@@ -51,5 +48,11 @@ defaults:
   -
     scope:
       type:         "posts"
+    values:
+      layout:       "post"
+
+  -
+    scope:
+      type:         "drafts"
     values:
       layout:       "post"
