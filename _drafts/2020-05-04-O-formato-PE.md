@@ -961,7 +961,7 @@ De qualquer forma, o endereço da função na DLL sempre é necessário e será 
 É melhor dar um exemplo. As chamadas com ou sem `__declspec(dllimporta)` têm o seguinte aspecto:
 
 fonte:
-```C
+```c
 int symbol(char *); 
 __declspec(dllimporta) 
 int symbol2(char*); 
