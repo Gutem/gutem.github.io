@@ -19,7 +19,7 @@ Este artigo tenta trazer a arquitetura completa, com análise das principais lin
 Links que consultei **após** escrever esse Artigo, mas **antes** de publica-lo:
 
 Pronunciamento da Empresa LiteLLM:  
-[https://docs.litellm.ai/blog/security-update-march-2026)](https://docs.litellm.ai/blog/security-update-march-2026)
+[https://docs.litellm.ai/blog/security-update-march-2026](https://docs.litellm.ai/blog/security-update-march-2026)
 
 Advisory da Wiz.  
 [https://app.wiz.io/boards/threat-center/wiz-adv-2026-037](https://app.wiz.io/boards/threat-center/wiz-adv-2026-037)
