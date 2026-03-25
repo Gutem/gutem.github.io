@@ -19,13 +19,13 @@ Este artigo tenta trazer a arquitetura completa, com análise das principais lin
 Links que consultei **após** escrever esse Artigo, mas **antes** de publica-lo:
 
 Pronunciamento da Empresa LiteLLM:  
-https://docs.litellm.ai/blog/security-update-march-2026
+[https://docs.litellm.ai/blog/security-update-march-2026)](https://docs.litellm.ai/blog/security-update-march-2026)
 
 Advisory da Wiz.  
-https://app.wiz.io/boards/threat-center/wiz-adv-2026-037
+[https://app.wiz.io/boards/threat-center/wiz-adv-2026-037](https://app.wiz.io/boards/threat-center/wiz-adv-2026-037)
 
 Post do Snyk (o mais técnico/com código que achei).  
-https://snyk.io/pt-BR/articles/poisoned-security-scanner-backdooring-litellm/ 
+[https://snyk.io/pt-BR/articles/poisoned-security-scanner-backdooring-litellm/](https://snyk.io/pt-BR/articles/poisoned-security-scanner-backdooring-litellm/)
 
 ---
 
@@ -598,7 +598,7 @@ MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvahaZDo8mucujrT15ry+...
 
 ---
 
-## Conclusão (ou **Pensamentos em Voz Alta do Semi-alfabetizado que vos escreve:**)
+## Conclusão (ou 'Pensamentos em Voz Alta do Semi-alfabetizado que vos escreve')
 
 O que esse malware demonstra, tecnicamente:
 
@@ -645,10 +645,10 @@ Em até 50 minutos, TODAS as instâncias infectadas:
 
 Se qualquer máquina executou esse script, assuma comprometimento total. A ordem importa:
 
-**1. Isolamento imediato**
+**1. Isolamento imediato**  
 Tirar da rede antes de qualquer outra ação — o C2 agent pode receber um novo payload a qualquer momento.
 
-**2. Revogar credenciais**
+**2. Revogar credenciais**  
 AWS IAM keys, service account tokens K8s, SSH keys, tokens Git, credenciais de banco. Tudo que estava no ambiente.
 
 **3. Eliminar persistência K8s**
@@ -666,11 +666,15 @@ rm -f ~/.config/systemd/user/sysmon.service
 rm -f /tmp/pglog /tmp/.pg_state
 ```
 
-**5. Verificar propagação**
+**5. Verificar propagação**  
 O agent foi instalado em **cada nó do cluster**. Verificar todos os nós individualmente — não só o pod onde o script rodou.
 
-**6. Analisar logs de rede retroativamente**
+**6. Analisar logs de rede retroativamente**  
 Conexões para `checkmarx.zone` e `litellm.cloud` nos últimos 30-90 dias indicam janela de comprometimento. Volume de dados enviados para `litellm.cloud` indica o que foi exfiltrado.
 
-**7. Reconstruir**
+**7. Reconstruir**  
 Nós K8s comprometidos não são confiáveis após container escape. A única garantia é recriar as instâncias a partir de imagens conhecidamente limpas.
+
+---
+
+Shouts para o mano [Vdgonc](https://github.com/Vdgonc)
