@@ -1,7 +1,8 @@
 ---
 layout: post
+title: "Anatomia de um Infostealer Moderno: Três Camadas, Uma Botnet"
+date: 2026-03-25 19:36:09
 ---
-# Anatomia de um Infostealer Moderno: Três Camadas, Uma Botnet
 
 *Análise técnica de infostealer encontrado nas versões 1.82.7 e 1.82.8 do pacote LiteLLM*
 
