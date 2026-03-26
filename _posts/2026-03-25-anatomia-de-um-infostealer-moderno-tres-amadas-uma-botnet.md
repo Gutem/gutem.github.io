@@ -437,6 +437,7 @@ kubectl get pods -A | grep "node-setup-"
 ```
 
 Pods com esse padrão de nome em `kube-system` são o container escape instalado pelo malware. Cada um representa um nó comprometido.
+
 ---
 
 ## Remediação
