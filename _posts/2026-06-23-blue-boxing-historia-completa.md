@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Blue Boxing — História Completa: do Apito do Captain Crunch ao CPqD"
-date: 2026-06-23 21:25:00
+date: 2026-06-23 00:00:00
 categories: [seguranca, historia, telefonia]
 tags: [phreaking, blue-boxing, telefonia, brasil, in-band-signaling, r2d]
 description: "Como um apito de cereal de $0.25, um tom de 2600 Hz e uma central telefônica que confiava no que ouvia criaram a primeira subcultura hacker — e como o Brasil escapou dela por 4 decisões de engenharia."
 ---
 
-O [Fernando Guisso](https://guisso.dev/blog/phone-phreaking/), algum tempo atrás, escreveu um post sobre Phone Phreaking. Ele me pediu para ler e dar um feedback. Assim o fiz. Como o assunto era Phreaking, conversamos por "Ligação de Voz", que em uma outra Era foi chamada de "Ligação Telefônica". Conversamos um bocado e sempre tem perguntas "com o gravador desligado".
+O Fernando Guisso, algum tempo atrás, escreveu um post sobre [Phone Phreaking](https://guisso.dev/blog/phone-phreaking/). Ele me pediu para ler e dar um feedback. Assim o fiz. Como o assunto era Phreaking, conversamos por "Ligação de Voz", que em uma outra Era foi chamada de "Ligação Telefônica". Conversamos um bocado e sempre tem perguntas "com o gravador desligado".
 
 Como isso aconteceu antes dos anos 2000, já prescreveu, então podemos falar sem Problemas Legais.
 
@@ -17,6 +17,7 @@ Com isso vieram também os comentários sobre os "hoax" — boatos — que essas
 Nesse momento eu disse "Eu truco!" ao nosso Keynote.
 
 "Blue Boxing funcionava no Brasil?"
+
 Lê o Texto aí e, se no final você não tiver entendido meu ponto, ele fica de brinde na Conclusão.
 
 ---
@@ -108,7 +109,13 @@ John Draper, veterano do Vietnã e engenheiro eletrônico, descobriu que o
 **apito de brinde do cereal Cap'n Crunch** produzia exatamente 2600 Hz.
 Usando o apito + um gravador de fita, construiu a primeira blue box funcional.
 
-### 2.3 Wozniak & Jobs — O Negócio (1972)
+### 2.3 A Revista Esquire (1971)
+
+*Secrets of the Little Blue Box* (Ron Rosenbaum, Esquire, outubro 1971)
+foi o marco zero da cultura phreak. Leitores fundaram o **YIPL/TAP**,
+o primeiro zine hacker, que publicava esquemas de blue boxes.
+
+### 2.4 Wozniak & Jobs — O Negócio (1972)
 
 Steve Wozniak leu sobre o apito na revista *Esquire* e construiu sua própria
 blue box digital. Steve Jobs transformou em negócio: $40 de peças, vendida
@@ -118,11 +125,6 @@ Wozniak usou a blue box para ligar para o **Papa Paulo VI** no Vaticano,
 fingindo ser Henry Kissinger. Quase conseguiu. Jobs diria depois: *"Se não
 fosse pela blue box, não existiria Apple."*
 
-### 2.4 A Revista Esquire (1971)
-
-*Secrets of the Little Blue Box* (Ron Rosenbaum, Esquire, outubro 1971)
-foi o marco zero da cultura phreak. Leitores fundaram o **YIPL/TAP**,
-o primeiro zine hacker, que publicava esquemas de blue boxes.
 
 ---
 
@@ -177,17 +179,15 @@ Para blue boxing (antes da digitalização):
 
 ### 4.2 Serviços +800 da Época
 
-| País | Operadora | Janela | Mensagem |
+| País | Operadora | Janela |
 |:--|:--|:--:|:--|
-| **Dinamarca** | Dansk Telekom/TDC | 1993-1997 | "Velkommen til Dansk Telekom" |
-| **Hong Kong** | Cable & Wireless | 1990-1997 | "Welcome to Cable & Wireless" |
-| Suécia | Telia | 1994-1998 | "Välkommen till Telia" |
-| Noruega | Telenor | 1994-1999 | "Velkommen til Telenor" |
-| Finlândia | Sonera | 1995-2000 | "Tervetuloa Soneraan" |
+| **Dinamarca** | Dansk Telekom/TDC | 1993-1997 |
+| **Hong Kong** | Cable & Wireless | 1990-1997 |
+| Suécia | Telia | 1994-1998 |
+| Noruega | Telenor | 1994-1999 |
+| Finlândia | Sonera | 1995-2000 |
 
-A Dansk Telekom foi a mais lembrada pelos phreaks brasileiros: tarifa
-Embratel para a Europa era baixa (~R$0.50/min noturna), o +800 era gratuito
-na origem, e o tronco dinamarquês dava acesso a toda a rede europeia.
+Ainda lembro da voz da atendente automática dizendo "Velkommen til Dansk Telekom"...
 
 ### 4.3 Acesso do Brasil — Prefixo 000
 
@@ -421,7 +421,7 @@ EUA (blue boxing):                        Brasil (chipping):
 
 A principal fonte primária é o fanzine **Barata Elétrica** (Derneval Cunha,
 anos 1990), que documentava chipping, centrais CPA e cartões indutivos.
-Arquivo completo em `absoluta.org/barata/`.
+Arquivo completo em [absoluta.org/barata/](absoluta.org/barata/).
 
 ### 7.5 Brasil vs EUA — Resumo
 
@@ -487,20 +487,35 @@ Blue boxing morreu tecnicamente, mas seu legado é imenso:
 
 ---
 
-
-
+## 11. Conclusão 
 
 Esses boatos, na sua maioria (até onde tive contato), vinham das zines brasileiras.
+
 Tive pouco contato com zines gringas naquela época especializadas em Phreaking fora dos EUA, mas tinha algum material Europeu já disponível, só que difícil de fazer o networking.
+
 Quando no IRC, sempre fui muito mais de frequentar canais gringos do que nacionais (exceção era o #deface na BrasNET).
 
 Acho que isso, majoritariamente, aconteceu primeiro por traduções de zines gringas — principalmente americanas — que eram as que chegavam por aqui quando alguém arriscava ir atrás de algo. E aqui nem estou falando de BBS no sentido de discar diretamente para um modem, mas sim por intermédio de um "Provedor de Acesso à Internet", ainda Internet discada, antes da "Internet Comercial".
 
-Por outro lado, o custo caro dos equipamentos de Telefonia na época inviabilizava "iniciativas independentes de Pesquisa". Logo, propagava-se o que vinha de fora como verdadeiro, já que relatos não faltavam.
+Por outro lado, o custo caro dos equipamentos de Telefonia na época inviabilizava "iniciativas independentes de Pesquisa". Logo, propagava-se o que vinha de fora como verdadeiro, já que relatos não faltavam, mesmo ninguem conseguindo replicar.
 
-![BlueBEEP](0194e24b-3fc5-7448-977f-0d68ee82b2c1.png)
+Os pouquissimos soturdos que tiveram acesso a conteudo Europeu, entenderam que a falha existia em lugares diferentes de formas diferentes.
+
+Enquanto americanos ligavam para um numero gratuito, geralmente local mas a vezes intermunicipal, abusavam do trunk e pivotavam para o destino final, alguns phreakers Europeus precisavam ligar para outro pais para fazer isso, as vezes para ligar para uma BBS na Cidade Vizinha (grátis é mais barato que uma ligação intermunicipal com desconto).
+
+Em anos recentes tive contato com outros materiais LATAM que replicavam o mesmo boato, creio que pelos mesmos motivos Brs.
+
+Um outro fenomeno que a internet discada proporcionou foi o "War Dialing", muitas vezes nem era pra tentar invadir uma Empresa como mostrado no filme de 1995 Hackers (que no Brasil recebeu o subtitulo de "Piratas de Computador") mas para ter acesso gratuito a internet. Existia canais na BrasNET e BrasIRC chamados "di grátis", que compartilhavam numeros de ISP que tinham numeros 0800.
+
+![BlueBEEP](/images/0194e24b-3fc5-7448-977f-0d68ee82b2c1.png)
 
 Interface do [BlueBEEP](https://github.com/Jimvin/BlueBEEP), programa que usávamos para fazer Blue Boxing.
+
+
+Todo esse texto compila, com ajuda de IA, anos de "Don't learn to Hack. Hack to Learn." 
+(Quem sabe, sabe. Mas qualquer hora Eu escrevo quando Eu puxei 170m de Fio Telefônico do Orelhão para a Casa dos meus Pais para acessar Internet de Tarde.)
+
+---
 
 ## Referências
 
