@@ -14,3 +14,12 @@
 	<span class="logo-prompt">{{ prompt }}</span>
 
 </aside>
+
+<button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">
+	<span class="sun-icon">&#9728;</span>
+	<span class="moon-icon">&#9790;</span>
+</button>
+<script>
+(function(){var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})();
+function toggleTheme(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('theme',n)}
+</script>
