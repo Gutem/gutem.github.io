@@ -444,7 +444,7 @@ Acho que isso, majoritariamente, aconteceu primeiro por traduções de zines gri
 
 Por outro lado, o custo caro dos equipamentos de Telefonia na época inviabilizava "iniciativas independentes de Pesquisa". Logo, propagava-se o que vinha de fora como verdadeiro, já que relatos não faltavam, mesmo ninguém conseguindo replicar.
 
-Os pouquíssimos soturdos que tiveram acesso a conteúdo Europeu entenderam que a falha existia em lugares diferentes, de formas diferentes.
+Os pouquíssimos sortudos que tiveram acesso a conteúdo Europeu entenderam que a falha existia em lugares diferentes, de formas diferentes.
 
 Enquanto americanos ligavam para um número gratuito, geralmente local mas às vezes intermunicipal, abusavam do trunk e pivotavam para o destino final, alguns phreakers Europeus precisavam ligar para outro país para fazer isso — às vezes para ligar para uma BBS na Cidade Vizinha (grátis é mais barato que uma ligação intermunicipal com desconto).
 
