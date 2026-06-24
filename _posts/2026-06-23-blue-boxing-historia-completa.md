@@ -298,10 +298,7 @@ Cada país migrou para sinalização digital em seu próprio ritmo:
 | **Brasil** | **—** | **Nunca vulnerável (R2D)** |
 
 **Importante**:  
-Em 1995, blue boxing estava praticamente morto nos países desenvolvidos.  
-EUA, Porto Rico, UK, Alemanha, Japão, Dinamarca, Hong Kong — todos digitais.  
-O "horário nobre" foi **1957-1985**: os 30 anos entre Joe Engressia e o SS7.  
-Depois disso, só Filipinas (até 98), Índia (até 2000) e Nigéria/Cuba (até 2000+) ainda tinham trunks analógicos.
+Em 1995, blue boxing estava praticamente morto nos países desenvolvidos. EUA, Porto Rico, UK, Alemanha, Japão, Dinamarca, Hong Kong — todos digitais. O "horário nobre" foi **1957-1985**: os 30 anos entre Joe Engressia e o SS7. Depois disso, só Filipinas (até 98), Índia (até 2000) e Nigéria/Cuba (até 2000+) ainda tinham trunks analógicos.
 
 ---
 
@@ -435,7 +432,7 @@ Blue boxing morreu tecnicamente, mas seu legado é imenso:
 
 ---
 
-## 11. Conclusão 
+## 11. Conclusão
 
 Esses boatos, na sua maioria (até onde tive contato), vinham das zines brasileiras.
 
@@ -445,25 +442,22 @@ Quando no IRC, sempre fui muito mais de frequentar canais gringos do que naciona
 
 Acho que isso, majoritariamente, aconteceu primeiro por traduções de zines gringas — principalmente americanas — que eram as que chegavam por aqui quando alguém arriscava ir atrás de algo. E aqui nem estou falando de BBS no sentido de discar diretamente para um modem, mas sim por intermédio de um "Provedor de Acesso à Internet", ainda Internet discada, antes da "Internet Comercial".
 
-Por outro lado, o custo caro dos equipamentos de Telefonia na época inviabilizava "iniciativas independentes de Pesquisa". Logo, propagava-se o que vinha de fora como verdadeiro, já que relatos não faltavam, mesmo ninguem conseguindo replicar.
+Por outro lado, o custo caro dos equipamentos de Telefonia na época inviabilizava "iniciativas independentes de Pesquisa". Logo, propagava-se o que vinha de fora como verdadeiro, já que relatos não faltavam, mesmo ninguém conseguindo replicar.
 
-Os pouquissimos soturdos que tiveram acesso a conteudo Europeu, entenderam que a falha existia em lugares diferentes de formas diferentes.
+Os pouquíssimos soturdos que tiveram acesso a conteúdo Europeu entenderam que a falha existia em lugares diferentes, de formas diferentes.
 
-Enquanto americanos ligavam para um numero gratuito, geralmente local mas a vezes intermunicipal, abusavam do trunk e pivotavam para o destino final, alguns phreakers Europeus precisavam ligar para outro pais para fazer isso, as vezes para ligar para uma BBS na Cidade Vizinha (grátis é mais barato que uma ligação intermunicipal com desconto).
+Enquanto americanos ligavam para um número gratuito, geralmente local mas às vezes intermunicipal, abusavam do trunk e pivotavam para o destino final, alguns phreakers Europeus precisavam ligar para outro país para fazer isso — às vezes para ligar para uma BBS na Cidade Vizinha (grátis é mais barato que uma ligação intermunicipal com desconto).
 
-Em anos recentes tive contato com outros materiais LATAM que replicavam o mesmo boato, creio que pelos mesmos motivos Brs.
+Em anos recentes tive contato com outros materiais LATAM que replicavam o mesmo boato, creio que pelos mesmos motivos brasileiros.
 
-Um outro fenomeno que a internet discada proporcionou foi o "War Dialing", muitas vezes nem era pra tentar invadir uma Empresa como mostrado no filme de 1995 Hackers (que no Brasil recebeu o subtitulo de "Piratas de Computador") mas para ter acesso gratuito a internet. Existia canais na BrasNET e BrasIRC chamados "di grátis", que compartilhavam numeros de ISP que tinham numeros 0800.
+Um outro fenômeno que a internet discada proporcionou foi o "War Dialing". Muitas vezes nem era para tentar invadir uma empresa como mostrado no filme de 1995 *Hackers* (que no Brasil recebeu o subtítulo de "Piratas de Computador"), mas para ter acesso gratuito à internet. Existiam canais na BrasNET e BrasIRC chamados "di grátis", que compartilhavam números de ISP que tinham 0800.
 
 ![BlueBEEP](/images/0194e24b-3fc5-7448-977f-0d68ee82b2c1.png)
 
 Interface do [BlueBEEP](https://github.com/Jimvin/BlueBEEP), programa que usávamos para fazer Blue Boxing.
 
-
 Esse texto compila, com ajuda de IA, muito dos meus anos de "Don't learn to Hack. Hack to Learn."  
-(Quem sabe, sabe. Mas qualquer hora Eu escrevo quando Eu puxei 170m de Fio Telefônico do Orelhão para a Casa dos meus Pais para acessar Internet de Tarde.)
-
----
+(Quem sabe, sabe. Mas qualquer hora eu escrevo quando eu puxei 170m de Fio Telefônico do Orelhão para a Casa dos meus pais para acessar Internet de Tarde.)---
 
 ## Referências
 
