@@ -7,11 +7,11 @@ tags: [phreaking, blue-boxing, telefonia, brasil, in-band-signaling, r2d]
 description: "Como um apito de cereal de $0.25, um tom de 2600 Hz e uma central telefônica que confiava no que ouvia criaram a primeira subcultura hacker — e como o Brasil escapou dela por 4 decisões de engenharia."
 ---
 
-O Fernando Guisso, algum tempo atrás, escreveu um post sobre [Phone Phreaking](https://guisso.dev/blog/phone-phreaking/). Ele me pediu para ler e dar um feedback. Assim o fiz. Como o assunto era Phreaking, conversamos por "Ligação de Voz", que em uma outra Era foi chamada de "Ligação Telefônica". Conversamos um bocado e sempre tem perguntas "com o gravador desligado".
+O [Fernando Guisso](https://www.linkedin.com/in/fernandoguisso/), algum tempo atrás, escreveu um post sobre [Phone Phreaking](https://guisso.dev/blog/phone-phreaking/). Ele me pediu para ler e dar um feedback. Assim o fiz. Como o assunto era Phreaking, conversamos por "Ligação de Voz", que em uma outra Era foi chamada de "Ligação Telefônica". Conversamos um bocado e sempre tem perguntas "com o gravador desligado".
 
 Como isso aconteceu antes dos anos 2000, já prescreveu, então podemos falar sem Problemas Legais.
 
-Na edição 2026 da BSides-ES, Titio Nelson "T50" Brito, keynote do Evento, fez uma Timeline da Internet Brasileira e momentos nostálgicos foram citados, como as "zines" que circulavam em BBS, listas de e-mails, canais de IRC, Fóruns, Disquetes de 1.44 MB...
+Na edição 2026 da BSides-ES, Titio [Nelson "T50" Brito](https://www.linkedin.com/in/nbrito/), keynote do Evento, fez uma Timeline da Internet Brasileira e momentos nostálgicos foram citados, como as "zines" que circulavam em BBS, listas de e-mails, canais de IRC, Fóruns, Disquetes de 1.44 MB...
 Com isso vieram também os comentários sobre os "hoax" — boatos — que essas zines propagavam sobre Phreaking, sendo o principal deles: "Blue Boxing não funcionava no Brasil".
 
 Nesse momento eu disse "Eu truco!" ao nosso Keynote.
