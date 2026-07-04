@@ -38,10 +38,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
 <!-- Web Vitals -> dataLayer (GA4 via GTM) -->
+<script defer src="https://cdn.jsdelivr.net/npm/web-vitals@4/dist/web-vitals.iife.js"></script>
 <script>
 	window.dataLayer = window.dataLayer || [];
+	window.addEventListener('load', function () {
+		if (!window.webVitals) return;
+		function s(m) {
+			window.dataLayer.push({ event: 'web_vitals', wv_name: m.name, wv_value: m.value, wv_delta: m.delta, wv_id: m.id, wv_rating: m.rating });
+		}
+		webVitals.onCLS(s); webVitals.onLCP(s); webVitals.onINP(s); webVitals.onFCP(s); webVitals.onTTFB(s);
+	});
 </script>
-<script defer src="https://cdn.jsdelivr.net/npm/web-vitals@4/dist/web-vitals.iife.js"
-	onload="(function(){function s(m){window.dataLayer.push({event:'web_vitals',wv_name:m.name,wv_value:m.value,wv_delta:m.delta,wv_id:m.id,wv_rating:m.rating});}webVitals.onCLS(s);webVitals.onLCP(s);webVitals.onINP(s);webVitals.onFCP(s);webVitals.onTTFB(s);})()"></script>
 
 {% endif %}
