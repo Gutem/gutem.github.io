@@ -10,11 +10,11 @@ layout: default
 	</style>
 </noscript>
 
-<article>
+<article data-pagefind-body>
 
 	{% if page.title %}
 		<div class="center">
-			<h1>{{ page.title }}</h1>
+			<h1 data-pagefind-meta="title">{{ page.title }}</h1>
 			{% if page.date %}
 				<time>
 					{% assign m = page.date | date: "%-m" %}
@@ -44,6 +44,8 @@ layout: default
 	{{ content }}
 
 </article>
+
+{% include giscus.html %}
 
 <div class="back">
 	<a href="{{site.baseurl}}/">Voltar</a>

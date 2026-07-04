@@ -1,6 +1,7 @@
 # Site Info
 title:              "Gutem"
 description:        "Thoughts, Black Tea and some Code"
+repository:         Gutem/gutem.github.io
 google_verify:      QcXys_5Oyz_Ak_gesqUXl52-fy4KlqAP1AIJ64U2qcU # Put your Google Verification here
 
 # Author Info
@@ -24,8 +25,9 @@ sass:
 
 # Other Params
 include:            [ "robots.txt" ]
-exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile" ]
-gems:
+exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile", "Gemfile.lock", "node_modules", ".github" ]
+
+plugins:
   - jekyll-sitemap
 
 compress_html:
