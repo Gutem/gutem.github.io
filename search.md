@@ -27,5 +27,17 @@ permalink: /buscar/
 				searching: 'Buscando por [SEARCH_TERM]\u2026'
 			}
 		});
+
+		var t;
+		document.addEventListener('input', function (e) {
+			if (!e.target.matches('#search input')) return;
+			clearTimeout(t);
+			t = setTimeout(function () {
+				var q = e.target.value.trim();
+				if (q.length > 2 && typeof window.gtag === 'function') {
+					window.gtag('event', 'search', { search_term: q });
+				}
+			}, 1200);
+		});
 	});
 </script>

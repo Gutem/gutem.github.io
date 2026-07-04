@@ -37,4 +37,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-NTZ5TJC7');</script>
 <!-- End Google Tag Manager -->
 
+<!-- Web Vitals -> GA4 (via gtag/dataLayer) -->
+<script>
+	window.dataLayer = window.dataLayer || [];
+	window.gtag = window.gtag || function () { dataLayer.push(arguments); };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/web-vitals@4/dist/web-vitals.iife.js"
+	onload="(function(){function s(m){gtag('event',m.name,{value:Math.round(m.name==='CLS'?m.delta*1000:m.delta),metric_id:m.id,metric_value:m.value,metric_delta:m.delta,metric_rating:m.rating,non_interaction:true});}webVitals.onCLS(s);webVitals.onLCP(s);webVitals.onINP(s);webVitals.onFCP(s);webVitals.onTTFB(s);})()"></script>
+
 {% endif %}
