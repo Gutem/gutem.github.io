@@ -34,8 +34,9 @@ permalink: /buscar/
 			clearTimeout(t);
 			t = setTimeout(function () {
 				var q = e.target.value.trim();
-				if (q.length > 2 && typeof window.gtag === 'function') {
-					window.gtag('event', 'search', { search_term: q });
+				if (q.length > 2) {
+					window.dataLayer = window.dataLayer || [];
+					window.dataLayer.push({ event: 'search', search_term: q });
 				}
 			}, 1200);
 		});
