@@ -37,6 +37,7 @@ for (var i = 0; i < array.length; i++) {
 {% endhighlight %}
 
 #### Especificação
+
 | Especificação | Estado | Comentário |
 |:--------------|:------:|:----------:|
 | [Web Cryptography API](https://dvcs.w3.org/hg/webcrypto-api/raw-file/tip/spec/Overview.html#RandomSource-method-getRandomValues) | Recomendação Candidato | Definição inicial |

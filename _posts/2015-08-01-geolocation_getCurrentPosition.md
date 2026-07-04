@@ -50,6 +50,7 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 {% endhighlight %}
 
 #### Especificações
+
 | Especificações | Estado | Comentário |
 |:---------------|:------:|:----------:|
 | [Geolocation API](https://dev.w3.org/geo/api/spec-source.html) | Recomendação | Especificação inicial |
@@ -57,11 +58,13 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 #### Navegadores compatíveis
 
 ##### **Desktop**
+
 | Feature | Chrome | Firefox (Gecko) | Internet Explorer | Opera | Safari |
 |:--------|:------:|:---------------:|:-----------------:|:-----:|:------:|
 | Suporte básico | 5 | 3.5 (1.9.1) | 9 | 10.60 - Removido no 15.0 - Reintroduzido no 16.0 | 5 |
 
 ##### **Mobile**  
+
 | Feature | Android | Chrome for Android | Firefox Mobile (Gecko) | IE Mobile | Opera Mobile | Safari Mobile |
 |:--------|:-------:|:------------------:|:----------------------:|:---------:|:------------:|:-------------:|
 | Suporte básico | ? | ? | 4.0 (4) | ? | 10.60 | ? | 
