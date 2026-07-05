@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /notes/anatomia-de-um-infostealer-moderno-tres-amadas-uma-botnet
 layout: post
 title: "Anatomia de um Infostealer Moderno: Três Camadas, Uma Botnet"
 date: 2026-03-25 19:36:09

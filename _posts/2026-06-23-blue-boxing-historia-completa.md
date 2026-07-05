@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /notes/blue-boxing-historia-completa
 layout: post
 title: "Blue Boxing — História Completa: do Apito do Captain Crunch ao CPqD"
 date: 2026-06-23 00:00:00

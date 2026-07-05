@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /notes/navigation-timing-api
 layout: post
 title:  "Navigation Timing API"
 date:   2015-07-27 00:35:00

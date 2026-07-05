@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /notes/Porque-e-tao-facil-ser-um-mau-gestor
 layout: post
 title:  "Por que é tão facil ser um mau gestor?"
 date:   2017-12-16 14:40:00

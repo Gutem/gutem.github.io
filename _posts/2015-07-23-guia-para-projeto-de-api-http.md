@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /notes/guia-para-projeto-de-api-http
 layout: post
 title:  "Guia para Projeto de API HTTP"
 date:   2015-07-23 18:20:00

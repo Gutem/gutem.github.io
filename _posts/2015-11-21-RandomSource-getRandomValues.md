@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /notes/RandomSource-getRandomValues
 layout: post
 title:  "RandomSource getRandomValues()"
 date:   2015-11-21 15:41:00

@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /notes/geolocation_getCurrentPosition
 layout: post
 title:  "Geolocation getCurrentPosition()"
 date:   2015-08-01 13:20:09

@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /notes/geolocation_watchPosition
 layout: post
 title:  "Geolocation watchPosition()"
 date:   2015-08-01 12:47:36
