@@ -1,0 +1,11 @@
+{% if site.github_sponsors != "" or site.buymeacoffee != "" %}
+<div class="support">
+	<span class="support-label">Curtiu? Ajude a manter o blog:</span>
+	{% if site.buymeacoffee != "" %}
+	<a class="support-btn coffee" href="https://www.buymeacoffee.com/{{ site.buymeacoffee }}" target="_blank" rel="noopener" onclick="if(window.dataLayer){dataLayer.push({event:'support_click',method:'buymeacoffee'})}">&#9749; Buy me a coffee</a>
+	{% endif %}
+	{% if site.github_sponsors != "" %}
+	<a class="support-btn sponsor" href="https://github.com/sponsors/{{ site.github_sponsors }}" target="_blank" rel="noopener" onclick="if(window.dataLayer){dataLayer.push({event:'support_click',method:'github_sponsors'})}">&#10084; Patrocinar no GitHub</a>
+	{% endif %}
+</div>
+{% endif %}

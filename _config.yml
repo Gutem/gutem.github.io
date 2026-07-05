@@ -10,6 +10,13 @@ author_email:       gutemhc@gmail.com
 # author_gravatar:    2b38b1b0e7e08b69379bd61582adf0c8 # Gravatar md5 hash
 twitter_username:   gutemhc
 
+# Social / Support / Integrations
+github_username:    Gutem
+github_sponsors:    Gutem      # github.com/sponsors/<user> (requires GitHub Sponsors enabled)
+buymeacoffee:       ""         # buymeacoffee.com/<user> (optional)
+onesignal_app_id:   ""         # OneSignal Web Push App ID (fill after creating the app)
+og_default_image:   "/assets/touch-icon.png"
+
 # Site Settings
 url:                "https://gutem.github.io" # Absolute site URL (no trailing slash)
 baseurl:            "" # Base URL must end WITHOUT a slash, default: ""

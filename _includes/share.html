@@ -1,0 +1,26 @@
+{% assign share_url = page.url | absolute_url %}
+{% assign u = share_url | url_encode %}
+{% assign t = page.title | url_encode %}
+<div class="share" aria-label="Compartilhar">
+	<span class="share-label">Compartilhar:</span>
+	<a href="https://twitter.com/intent/tweet?url={{ u }}&amp;text={{ t }}" target="_blank" rel="noopener nofollow" aria-label="Compartilhar no X">X</a>
+	<a href="https://www.linkedin.com/sharing/share-offsite/?url={{ u }}" target="_blank" rel="noopener nofollow" aria-label="Compartilhar no LinkedIn">LinkedIn</a>
+	<a href="https://t.me/share/url?url={{ u }}&amp;text={{ t }}" target="_blank" rel="noopener nofollow" aria-label="Compartilhar no Telegram">Telegram</a>
+	<a href="https://api.whatsapp.com/send?text={{ t }}%20{{ u }}" target="_blank" rel="noopener nofollow" aria-label="Compartilhar no WhatsApp">WhatsApp</a>
+	<a href="https://www.reddit.com/submit?url={{ u }}&amp;title={{ t }}" target="_blank" rel="noopener nofollow" aria-label="Compartilhar no Reddit">Reddit</a>
+	<a href="https://news.ycombinator.com/submitlink?u={{ u }}&amp;t={{ t }}" target="_blank" rel="noopener nofollow" aria-label="Enviar ao Hacker News">HN</a>
+	<button type="button" class="share-copy" data-url="{{ share_url }}" aria-label="Copiar link">Copiar link</button>
+</div>
+<script>
+(function () {
+	var btn = document.currentScript.previousElementSibling.querySelector('.share-copy');
+	if (!btn) return;
+	btn.addEventListener('click', function () {
+		var url = btn.getAttribute('data-url');
+		function ok() { var o = btn.textContent; btn.textContent = 'Copiado!'; setTimeout(function () { btn.textContent = o; }, 1500); }
+		if (navigator.clipboard) { navigator.clipboard.writeText(url).then(ok, ok); }
+		else { var ta = document.createElement('textarea'); ta.value = url; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} document.body.removeChild(ta); ok(); }
+		if (window.dataLayer) { window.dataLayer.push({ event: 'share', method: 'copy_link' }); }
+	});
+})();
+</script>

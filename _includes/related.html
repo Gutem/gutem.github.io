@@ -1,0 +1,30 @@
+{% assign maxRelated = 3 %}
+{% capture related_html %}
+  {% assign n = 0 %}
+  {% for post in site.posts %}
+    {% if post.url == page.url %}{% continue %}{% endif %}
+    {% assign common = 0 %}
+    {% for tag in post.tags %}{% if page.tags contains tag %}{% assign common = common | plus: 1 %}{% endif %}{% endfor %}
+    {% if common > 0 and n < maxRelated %}
+      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+      {% assign n = n | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+{% assign related_html = related_html | strip %}
+{% if related_html == "" %}
+  {% capture related_html %}
+    {% assign n = 0 %}
+    {% for post in site.posts %}
+      {% if post.url == page.url %}{% continue %}{% endif %}
+      {% if n < maxRelated %}<li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>{% assign n = n | plus: 1 %}{% endif %}
+    {% endfor %}
+  {% endcapture %}
+  {% assign related_html = related_html | strip %}
+{% endif %}
+{% if related_html != "" %}
+<aside class="related">
+	<h2>Leia tamb&eacute;m</h2>
+	<ul>{{ related_html }}</ul>
+</aside>
+{% endif %}

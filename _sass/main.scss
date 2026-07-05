@@ -661,3 +661,95 @@ section {
   90%  { -webkit-transform: translate3d(0, 5px, 0); }
   100% { -webkit-transform: none; }
 }
+
+/* ============================
+   Post enhancements
+   ============================ */
+.reading-time {
+  color: var(--text-muted);
+  margin-left: 6px;
+}
+
+.toc {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin: 24px 0;
+  background: var(--bg-table-header);
+  font-size: 0.92em;
+}
+.toc .toc-title {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8em;
+}
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc li { margin: 4px 0; }
+.toc li.toc-h3 { padding-left: 16px; font-size: 0.95em; }
+.toc a { color: var(--text-secondary); text-decoration: none; }
+.toc a:hover { color: var(--accent); }
+
+.share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 40px 0 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 0.85em;
+}
+.share-label { color: var(--text-muted); margin-right: 4px; }
+.share a, .share .share-copy {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+.share a:hover, .share .share-copy:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.support {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 24px 0;
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  background: var(--bg-table-header);
+}
+.support-label { color: var(--text-secondary); }
+.support-btn {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.support-btn.coffee:hover { border-color: #ffdd00; }
+.support-btn.sponsor:hover { border-color: #db61a2; color: #db61a2; }
+
+.related {
+  margin: 40px 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.related h2 { font-size: 1.05em; margin-bottom: 10px; }
+.related ul { list-style: none; margin: 0; padding: 0; }
+.related li { margin: 6px 0; }
+.related a { color: var(--text-secondary); }
+.related a:hover { color: var(--accent); }

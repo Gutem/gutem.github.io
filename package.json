@@ -1,0 +1,13 @@
+{
+  "name": "gutem-site-tools",
+  "private": true,
+  "type": "module",
+  "description": "Build-time tooling for gutem.github.io (OG image generation)",
+  "scripts": {
+    "og": "node scripts/generate-og.mjs"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "gray-matter": "^4.0.3"
+  }
+}
