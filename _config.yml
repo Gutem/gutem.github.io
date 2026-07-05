@@ -14,7 +14,7 @@ twitter_username:   gutemhc
 github_username:    Gutem
 github_sponsors:    Gutem      # github.com/sponsors/<user> (requires GitHub Sponsors enabled)
 buymeacoffee:       ""         # buymeacoffee.com/<user> (optional)
-onesignal_app_id:   ""         # OneSignal Web Push App ID (fill after creating the app)
+onesignal_app_id:   "75ab249c-8701-41a9-9f35-43f32ebf3292"         # OneSignal Web Push App ID
 og_default_image:   "/assets/touch-icon.png"
 
 # Site Settings
