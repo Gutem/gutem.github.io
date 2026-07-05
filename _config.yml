@@ -11,6 +11,7 @@ author_email:       gutemhc@gmail.com
 twitter_username:   gutemhc
 
 # Site Settings
+url:                "https://gutem.github.io" # Absolute site URL (no trailing slash)
 baseurl:            "" # Base URL must end WITHOUT a slash, default: ""
 permalink:          /notes/:title # Post permalink
 timezone:           America/Sao_Paulo # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
