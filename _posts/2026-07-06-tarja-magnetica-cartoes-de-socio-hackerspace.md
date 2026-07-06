@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tarja magnética (parte 5): cartões de sócio para o seu hackerspace"
+title: "Do Magstripe ao Token (parte 5): cartões de sócio para o seu hackerspace"
 date: 2026-07-06 00:00:00
 categories: [seguranca, hardware, diy]
 tags: [magstripe, tarja-magnetica, hackerspace, controle-de-acesso, arduino, javascript, iso7813, msr]
@@ -9,10 +9,11 @@ description: "Como um hackerspace grava os próprios cartões de sócio por tarj
 
 > **Série "Do Magstripe ao Token"** — parte 5.
 > [1) A anatomia de um cartão](/posts/magstripe-emv-token-anatomia-do-cartao) ·
-> [2) Byte a byte da trilha](/posts/tarja-magnetica-byte-a-byte) ·
+> [2) A trilha byte a byte](/posts/tarja-magnetica-byte-a-byte) ·
 > [3) Leitor com cabeçote de Walkman](/posts/tarja-magnetica-leitor-walkman) ·
 > [4) Leitor com Arduino](/posts/tarja-magnetica-leitor-arduino) ·
-> **5) Cartões de sócio (este)**.
+> **5) Cartões de sócio (este)** ·
+> [6) EMV, Token e as defesas](/posts/tarja-magnetica-ataques-e-defesas).
 
 Nas partes anteriores a gente leu, decodificou e construiu leitores de tarja. Agora vem o lado divertido e **legítimo**: gravar os **nossos próprios** cartões. O caso de uso perfeito é o **controle de acesso de um hackerspace** — cada sócio ganha um cartão que abre a porta.
 

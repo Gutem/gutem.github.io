@@ -1,78 +1,91 @@
 ---
 layout: post
-title: "Tarja magnética (parte 6): ataques, defesas e onde mora o crime"
+title: "Do Magstripe ao Token (parte 6): EMV, Token e as defesas"
 date: 2026-07-06 00:00:00
 categories: [seguranca, pagamentos]
-tags: [magstripe, emv, tokenizacao, fraude, seguranca, skimming]
-description: "Fechando a série: skimming, clonagem, downgrade de service code e shimming — e por que quase todos falham hoje. Onde copiar o formato é inofensivo e onde vira crime."
+tags: [emv, tokenizacao, magstripe, fraude, seguranca, skimming, nfc]
+description: "O fim da série: as camadas que aposentaram a tarja. EMV (o dado dinâmico), tokenização (o número substituído) e por que skimming, clonagem, downgrade de service code e shimming já não funcionam."
 ---
 
 > **Série "Do Magstripe ao Token"** — parte 6 (final).
 > [1](/posts/magstripe-emv-token-anatomia-do-cartao) · [2](/posts/tarja-magnetica-byte-a-byte) ·
 > [3](/posts/tarja-magnetica-leitor-walkman) · [4](/posts/tarja-magnetica-leitor-arduino) ·
-> [5](/posts/tarja-magnetica-cartoes-de-socio-hackerspace) · **6) Ataques e defesas (este)**.
+> [5](/posts/tarja-magnetica-cartoes-de-socio-hackerspace) · **6) EMV, Token e as defesas (este)**.
 
-Construímos leitores, decodificamos trilhas e gravamos cartões de sócio. Fecho a série com a pergunta que importa: **se ler tarja é tão fácil, por que o mundo não desabou em fraude?** Porque a tarja foi cercada de defesas — e quase todo ataque clássico **já não funciona**.
-
-## O princípio único
+As cinco primeiras partes foram sobre a **tarja** — a camada de **dado estático**. A gente leu, decodificou, construiu leitores e até gravou cartões de sócio. Ao longo disso ficou uma pergunta martelando: **se ler tarja é tão fácil, por que o mundo não desabou em fraude?** Porque a tarja foi cercada por duas camadas novas — e é delas que este post final trata. Uma frase resume tudo o que vem a seguir:
 
 > **Dado estático pode ser copiado, mas não pode ser forjado numa transação dinâmica válida.**
 
-Guarde essa frase. Ela explica cada defesa abaixo.
+## EMV: o dado que vira prova viva
 
-## As classes de ataque (e por que morreram)
+O chip dourado (**EMV** — Europay/Mastercard/Visa, hoje governado pela EMVCo) resolve o pecado da tarja com uma ideia só: em vez de *apresentar* um segredo estático, o cartão **assina criptograficamente cada transação**.
 
-### Skimming — a captura
+Quando você insere o cartão, começa um diálogo:
 
-Um leitor clandestino copia as trilhas, porque o dado é **estático**. É o passo que ainda é "fácil" — é o mesmo que nossos leitores caseiros fazem. A defesa não é impedir a captura, é **tornar o capturado inútil** (itens abaixo) e blindar terminais (P2PE, *tamper-evident*).
+1. **Seleção de aplicação (AID)** — o chip lista suas "apps" (crédito, débito). Cada bandeira tem um AID (Visa `A0000000031010`, **Elo** `A0000005241010`).
+2. **Autenticação do cartão** — via SDA/DDA/CDA (assinaturas RSA que provam que o chip é legítimo, não um clone).
+3. **Verificação do portador (CVM)** — PIN online/offline, assinatura, ou nada (contactless de baixo valor).
+4. **Criptograma** — o coração.
 
-### Clonagem de tarja — falha hoje
+No auge da compra, o chip gera o **ARQC** (*Authorization Request Cryptogram*): um MAC sobre os dados da transação (valor, moeda, data, um número imprevisível do terminal…) com uma **chave derivada** exclusiva do cartão. O ingrediente mágico é o **ATC** (*Application Transaction Counter*), que **incrementa a cada transação**:
 
-Gravar as trilhas num cartão virgem já bastou um dia. Quebrou por camadas simultâneas:
+```
+ARQC = MAC( chave_do_cartão , valor ‖ moeda ‖ data ‖ ATC ‖ nonce_terminal ‖ … )
+```
 
-- **iCVV ≠ CVV1**: o chip carrega uma cópia da Trilha 2 com um CVV **diferente**; um clone feito do chip não bate com o CVV1 que o emissor espera de uma tarja.
-- **Autorização online**: o emissor confere CVV, service code e risco em tempo real.
-- **Verificação do service code**: o emissor sabe que o cartão é "de chip" — uma tarja num cartão de chip já nasce suspeita.
+Como o ATC entra na conta, **dois criptogramas nunca são iguais** — mesmo comprando o mesmo café, no mesmo valor, na mesma máquina. O emissor recalcula, confere, responde com **ARPC** (autoriza) e o cartão finaliza com **TC** (aprovado) ou **AAC** (negado).
 
-### Downgrade de service code — o ataque que o EMV antecipou
+A tarja era uma **foto** (copiável); o EMV é uma **assinatura ao vivo, com número de série**. Clonar exigiria extrair a chave de dentro do *secure element* — que é exatamente o que ele existe pra impedir.
 
-A ideia (documentada na literatura acadêmica de EMV): como o service code diz "prefira o chip", o fraudador tentava **forçar a transação pra tarja** (fallback), onde não há criptograma. Não vou detalhar a manipulação — e nem precisa, porque ela **não cola mais**:
+## Token: o número substituído
 
-- o **emissor compara** o service code apresentado com o que ele gravou → divergência = fraude óbvia;
-- bandeiras **monitoram e recusam** fallback anômalo; muitos emissores **bloqueiam fallback** por padrão;
-- **liability shift**: quem aceitou a tecnologia fraca paga a conta;
-- e o **iCVV** já derrubou o clone antes disso.
+O EMV blindou o presencial. Mas e o **e-commerce**, onde você só digita PAN + validade + CVV2 — dado estático de novo? A resposta é a **tokenização**: nunca deixe o PAN real circular.
 
-É redundância proposital: o EMV foi desenhado prevendo esse ataque.
+- **FPAN** (*Funding PAN*) — o número real (`509431…5929`).
+- **DPAN** (*Device PAN*) — um **token** que parece um cartão (passa em Luhn, tem BIN), mas é um alias inútil fora do seu contexto.
 
-### Shimming — o skimmer do chip
+Quem faz a troca é um **TSP** (*Token Service Provider*) — as próprias bandeiras (Visa VTS, Mastercard MDES). O superpoder é o **domain restriction**: o token pode ser amarrado a um **dispositivo**, a um **comerciante** ou a um **canal**. Se o banco de dados de uma loja vazar, os tokens são **inúteis** em qualquer outro lugar.
 
-Um *shim* no slot intercepta a comunicação. Mas o que ele captura é um **ARQC** — criptograma de **uso único**, amarrado ao contador **ATC**. Reproduzir exige um criptograma novo e válido, que só o chip genuíno gera. Replay não funciona.
+No **Apple/Google Pay**, o PAN real vira um DPAN guardado no Secure Element do telefone (o número real nunca fica no aparelho), e cada pagamento gera um **criptograma dinâmico** — tokenização **+** a filosofia do ARQC, juntas. Pro checkout web, o **3-D Secure 2** adiciona autenticação forte no emissor. E, de bônus, como o lojista só lida com tokens, o **escopo do PCI-DSS** despenca.
 
-### E-commerce — a fronteira que sobrou
+## Os quatro "CVVs" (não confunda)
 
-Onde ainda há dado estático (digitar PAN+CVV2), a defesa migrou pra **tokenização** (o número real nem circula) e **3-D Secure** (autenticação forte no emissor). Roubar PAN de um banco de dados vale cada vez menos.
+| Nome | Onde vive | Estático? | Serve pra |
+|:--|:--|:--:|:--|
+| **CVV1** | na **tarja** | sim | validar a tarja no POS |
+| **CVV2** | **impresso** no verso | sim | e-commerce (**não** está na tarja!) |
+| **iCVV** | no **chip** | sim (≠ CVV1) | detectar chip "rebaixado" pra tarja |
+| **dCVV** | contactless / token | **não** | pagamento por aproximação/wallet |
+
+É por isso que o leitor da série **nunca** revelou um CVV2: ele não está na tarja. De lá só sai o CVV1, inútil sozinho no checkout online.
+
+## Os ataques clássicos — e por que falham hoje
+
+- **Skimming** (copiar as trilhas): ainda é "fácil" — é o que nossos leitores caseiros fazem. A defesa não é impedir a cópia, é **tornar o copiado inútil** (abaixo).
+- **Clonagem de tarja**: derrubada pelo **iCVV ≠ CVV1**, pela **autorização online** e pela **checagem do service code** — o emissor sabe que o cartão é "de chip".
+- **Downgrade de service code** (forçar fallback pra tarja, sem criptograma): o EMV **antecipou** esse ataque. O emissor compara o service code com o que gravou; bandeiras monitoram e **recusam fallback anômalo**; e o **liability shift** faz quem usou a tecnologia fraca pagar a conta.
+- **Shimming** (interceptar o chip): captura um **ARQC** de uso único — replay não funciona, porque o próximo exige um criptograma novo com o ATC seguinte.
 
 ## Onde é inofensivo e onde é crime
 
-Isto amarra a série toda. Ao longo dela, gravamos cartões copiando o **formato ISO 7813** — o mesmo do cartão de banco. Por que isso é ok?
+Isto amarra a série. Gravamos cartões copiando o **formato ISO 7813** — o mesmo do banco. Por que isso é ok?
 
 | Ação | Status |
 |:--|:--|
 | Ler **o seu** cartão pra entender o formato | ✅ legítimo (é o que um POS faz) |
-| Gravar crachá de sócio com **BIN privado (MII 9)** | ✅ legítimo (auto-emissão; não é meio de pagamento) |
-| Construir leitor/gravador pra bancada | ✅ legítimo (ferramenta) |
+| Gravar crachá com **BIN privado (MII 9)** | ✅ legítimo (auto-emissão, não é pagamento) |
+| Construir leitor/gravador de bancada | ✅ legítimo (ferramenta) |
 | Ler/clonar cartão de **terceiro** | ⛔ crime |
-| Gravar **PAN real de outra pessoa** num cartão | ⛔ crime |
-| Manipular service code pra fraudar fallback | ⛔ crime |
+| Gravar **PAN real de outra pessoa** | ⛔ crime |
+| Manipular service code pra fraudar | ⛔ crime |
 
-A diferença nunca é a **técnica** — é o **dado** e a **autorização**. Copiar a *forma* de um cartão pra abrir a porta do seu hackerspace é como imitar o formato de uma nota fiscal pra organizar seus recibos: a estrutura é pública, o conteúdo é seu. Copiar o *conteúdo* de um cartão alheio pra pagar com ele é falsificação.
+A diferença nunca é a **técnica** — é o **dado** e a **autorização**. Copiar a *forma* de um cartão pra abrir a porta do hackerspace é como imitar o layout de uma nota fiscal pra organizar recibos: a estrutura é pública, o conteúdo é seu.
 
-## O arco da série
+## O arco completo
 
-- **Magstripe**: dado estático, copiável — e por isso cercado de defesas externas.
+- **Magstripe** (partes 1–5): dado **estático**, copiável — cercado de defesas externas.
 - **EMV**: transformou cada compra numa assinatura viva (ARQC/ATC) — matou a clonagem presencial.
-- **Token**: trocou o próprio número por um alias restrito — matou o valor do PAN vazado.
+- **Token**: trocou o número por um alias restrito — matou o valor do PAN vazado.
 
 Cada camada assume que a anterior *vai* vazar, e projeta pra que o vazamento seja inútil. Entender isso a fundo — a ponto de construir o sensor da tarja com um cabeçote de Walkman — é o que separa quem **usa** o sistema de quem **entende** o sistema. E entender é, sempre, o lado certo da força.
 
